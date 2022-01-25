@@ -29,6 +29,13 @@ function Vector2:distance(v2)
   return math.sqrt((v2.x - self.x) ^ 2 + (v2.y - self.y) ^ 2)
 end
 
+function Vector2:angle_between(v2)
+  local vector_in_direction = v2 - self
+  local radians = math.atan2(vector_in_direction.y, vector_in_direction.x)
+  local degrees = radians / math.pi * 180
+  return degrees
+end
+
 function Vector2:dot(v2)
   return self.x * v2.x + self.y * v2.y 
 end
